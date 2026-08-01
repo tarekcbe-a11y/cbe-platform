@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حاسبة أذون الخزانة - جروب عملاء البنوك المصرية</title>
+    <title>جروب عملاء البنوك المصرية - منصة الخدمات الرقمية</title>
     <style>
         :root {
             --bg-color: #111827;
@@ -12,6 +12,7 @@
             --text-main: #ffffff;
             --text-muted: #9ca3af;
             --accent-color: #f59e0b;
+            --accent-hover: #d97706;
             --back-btn-bg: #dc2626;
             --back-btn-hover: #b91c1c;
         }
@@ -38,57 +39,107 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+        }
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            object-fit: cover;
+            margin-bottom: 10px;
         }
         h1 {
             font-size: 20px;
             color: var(--accent-color);
+            margin: 0 0 5px 0;
+        }
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
             margin: 0;
         }
-        .btn-back {
+        .section-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .section-card h2 {
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+        .section-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+            line-height: 1.5;
+        }
+        .btn {
             display: block;
             width: 100%;
-            background-color: var(--back-btn-bg);
-            color: #ffffff;
+            background-color: var(--accent-color);
+            color: #111827;
             text-align: center;
             padding: 12px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            margin-bottom: 20px;
             transition: background 0.3s;
             box-sizing: border-box;
         }
-        .btn-back:hover {
-            background-color: var(--back-btn-hover);
-        }
-        .content-box {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 16px;
-            color: var(--text-muted);
-            font-size: 13px;
-            line-height: 1.6;
+        .btn:hover {
+            background-color: var(--accent-hover);
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- زر الرجوع للرئيسية بلون مميز -->
-        <a href="https://tarekcbe-a11y.github.io/" class="btn-back">⬅️ الرجوع للرئيسية</a>
 
+    <div class="container">
         <div class="header">
-            <h1>حاسبة أذون الخزانة</h1>
+            <img src="logo.png" alt="شعار الجروب" class="logo">
+            <h1>جروب عملاء البنوك المصرية</h1>
+            <p class="subtitle">منصة الخدمات الرقمية المتكاملة</p>
         </div>
 
-        <!-- المحتوى المخصص لأذون الخزانة بدلاً من الشهادات -->
-        <div class="content-box">
-            <p style="margin: 0; text-align: center;">
-                مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة تامة لعملاء البنوك المصرية.
-            </p>
+        <!-- 1. البوابة الرئيسية -->
+        <div class="section-card">
+            <h2>البوابة الرئيسية</h2>
+            <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية المصممة بعناية لتلبية احتياجاتكم.</p>
+        </div>
+
+        <!-- 2. حاسبة القروض -->
+        <div class="section-card">
+            <h2>حاسبة القروض</h2>
+            <p>أداة رقمية متطورة لحساب أقساط القروض وجداول السداد بدقة تامة.</p>
+            <a href="https://tarekcbe-a11y.github.io/loan-calc/" class="btn">استعرض الأداة ⬅️</a>
+        </div>
+
+        <!-- 3. حاسبة أذون الخزانة -->
+        <div class="section-card">
+            <h2>حاسبة أذون الخزانة</h2>
+            <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة تامة.</p>
+            <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" class="btn">استعرض الأداة ⬅️</a>
+        </div>
+
+        <!-- 4. أذون الخزانة ضد الودائع -->
+        <div class="section-card">
+            <h2>أذون الخزانة ضد الودائع</h2>
+            <p>مقارنة ذكية ومقدمة للموازنة بين عوائد الأذون والودائع البنكية المتاحة.</p>
+            <a href="https://tarekcbe-a11y.github.io/-tb-vs-deposit-calculator/" class="btn">استعرض الأداة ⬅️</a>
+        </div>
+
+        <!-- 5. حاسبة العوائد البنكية والشهادات -->
+        <div class="section-card">
+            <h2>حاسبة العوائد البنكية</h2>
+            <p>أداة متكاملة لحساب عوائد الشهادات البنكية والودائع قصيرة الأجل.</p>
+            <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" class="btn">استعرض الأداة ⬅️</a>
         </div>
     </div>
+
 </body>
 </html>
+
