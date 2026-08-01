@@ -3,192 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة عملاء البنوك المصرية</title>
+    <title>جروب عملاء البنوك المصرية - منصة الخدمات الرقمية</title>
     <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --bg-color: #111827;
+            --card-bg: #1f2937;
+            --border-color: #f59e0b;
+            --text-main: #ffffff;
+            --text-muted: #9ca3af;
+            --accent-color: #f59e0b;
+            --accent-hover: #d97706;
+            --back-btn-bg: #dc2626;
+            --back-btn-hover: #b91c1c;
         }
         body {
-            background-color: #1a2233;
-            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
             padding: 20px;
             display: flex;
             justify-content: center;
-        }
-        .main-wrapper {
-            width: 100%;
-            max-width: 480px;
-            background-color: #1a2233;
-            border: 2px solid #f39c12;
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-        }
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-            border-bottom: 1px solid rgba(243, 156, 18, 0.3);
-            padding-bottom: 15px;
-            position: relative;
-            display: flex;
             align-items: center;
-            justify-content: center;
-            min-height: 70px;
-        }
-        .logo-container {
-            width: 50px;
-            height: 50px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            position: absolute;
-            left: 5px;
-        }
-        .logo-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .header-text {
-            text-align: center;
-            width: 100%;
-            padding: 0 50px;
-        }
-        .header-text h2 {
-            font-size: 13px;
-            color: #bdc3c7;
-            margin-bottom: 3px;
-            font-weight: 400;
-        }
-        .header-text h1 {
-            font-size: 17px;
-            color: #f39c12;
-            font-weight: 700;
+            min-height: 100vh;
         }
         .container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            width: 100%;
+            max-width: 480px;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            box-sizing: border-box;
         }
-        .card {
-            background: #1a2233;
-            border: 1px solid #f39c12;
-            border-radius: 12px;
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card h3 {
-            color: #ffffff;
-            font-size: 16px;
-            margin-bottom: 8px;
+        .header {
             text-align: center;
+            margin-bottom: 24px;
         }
-        .card p {
-            color: #bdc3c7;
+        .logo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 20px;
+            color: var(--accent-color);
+            margin: 0 0 5px 0;
+        }
+        .subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+        .section-card {
+            background: rgba(17, 24, 39, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .section-card h2 {
+            font-size: 16px;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+        }
+        .section-card p {
             font-size: 13px;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            text-align: right;
+            color: var(--text-muted);
+            margin: 0 0 12px 0;
+            line-height: 1.5;
         }
         .btn {
             display: block;
-            background-color: #f39c12;
-            color: #1a2233;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 8px;
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #111827;
             text-align: center;
-            font-weight: 700;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
             font-size: 14px;
+            transition: background 0.3s;
+            box-sizing: border-box;
+            margin-top: 8px;
         }
         .btn:hover {
-            background-color: #e67e22;
+            background-color: var(--accent-hover);
         }
-        footer {
-            text-align: center;
-            margin-top: 25px;
-            padding-top: 15px;
-            border-top: 1px solid #f39c12;
-        }
-        .footer-group {
-            font-size: 13px;
+        .btn-back {
+            background-color: var(--back-btn-bg);
             color: #ffffff;
-            margin-bottom: 5px;
-            font-weight: 600;
         }
-        .footer-author {
-            font-size: 13px;
-            color: #f39c12;
-            font-weight: 600;
+        .btn-back:hover {
+            background-color: var(--back-btn-hover);
         }
     </style>
 </head>
 <body>
 
-    <div class="main-wrapper">
-        <header>
-            <div class="logo-container">
-                <img src="logo.png" alt="شعار جروب عملاء البنوك المصرية">
-            </div>
-            <div class="header-text">
-                <h2>منصة الخدمات الرقمية</h2>
-                <h1>جروب عملاء البنوك المصرية</h1>
-            </div>
-        </header>
-
-        <div class="container">
-            <div class="card">
-                <div>
-                    <h3>البوابة الرئيسية</h3>
-                    <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول.</p>
-                </div>
-                <a href="https://tarekcbe-a11y.github.io/" target="_blank" class="btn">استعرض الأداة</a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3>حاسبة القروض</h3>
-                    <p>أداة رقمية متطورة لحساب أقساط القروض وجداول السداد بدقة تامة.</p>
-                </div>
-                <a href="https://tarekcbe-a11y.github.io/loan-calc/" target="_blank" class="btn">استعرض الأداة</a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3>حاسبة أذون الخزانة</h3>
-                    <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة.</p>
-                </div>
-                <a href="https://tarekcbe-a11y.github.io/t-bills-calculator/" target="_blank" class="btn">استعرض الأداة</a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3>أذون الخزانة ضد الودائع</h3>
-                    <p>مقارنة ذكية ومتقدمة للموازنة بين عوائد الأذون والودائع البنكية المتاحة.</p>
-                </div>
-                <a href="https://tarekcbe-a11y.github.io/-tb-vs-deposit-calculator/" target="_blank" class="btn">استعرض الأداة</a>
-            </div>
-
-            <div class="card">
-                <div>
-                    <h3>حاسبة العوائد</h3>
-                    <p>أداة احترافية لحساب وتوقع عوائد الاستثمارات وتنمية المدخرات بكفاءة.</p>
-                </div>
-                <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" target="_blank" class="btn">استعرض الأداة</a>
-            </div>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="شعار الجروب" class="logo">
+            <h1>جروب عملاء البنوك المصرية</h1>
+            <p class="subtitle">منصة الخدمات الرقمية المتكاملة</p>
         </div>
 
-        <footer>
-            <div class="footer-group">جروب عملاء البنوك المصرية</div>
-            <div class="footer-author">Developed by Tarek Metwally</div>
-        </footer>
+        <!-- 1. البوابة الرئيسية (شرح فقط بدون زر استعراض) -->
+        <div class="section-card">
+            <h2>البوابة الرئيسية</h2>
+            <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية المصممة بعناية لتلبية احتياجاتكم.</p>
+        </div>
+
+        <!-- 2. حاسبة القروض -->
+        <div class="section-card">
+            <h2>حاسبة القروض</h2>
+            <p>أداة رقمية متطورة لحساب أقساط القروض وجداول السداد بدقة تامة.</p>
+            <a href="loan-calculator.html" class="btn">استعرض الأداة</a>
+        </div>
+
+        <!-- 3. حاسبة أذون الخزانة (تم تفعيل محتوى البوابة مكان الخطأ وإضافة زر الرجوع) -->
+        <div class="section-card">
+            <h2>حاسبة أذون الخزانة</h2>
+            <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة.</p>
+            <a href="treasury-calculator.html" class="btn">استعرض الأداة</a>
+            <a href="index.html" class="btn btn-back">الرجوع للرئيسية 🏠</a>
+        </div>
+
+        <!-- 4. أذون الخزانة ضد الودائع -->
+        <div class="section-card">
+            <h2>أذون الخزانة ضد الودائع</h2>
+            <p>مقارنة ذكية ومقدمة للموازنة بين عوائد الأذون والودائع البنكية المتاحة.</p>
+            <a href="comparison.html" class="btn">استعرض الأداة</a>
+        </div>
     </div>
 
 </body>
