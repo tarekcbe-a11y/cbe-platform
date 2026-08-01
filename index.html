@@ -121,7 +121,7 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             font-size: 12px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -140,7 +140,7 @@
             <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية.</p>
         </div>
 
-        <!-- 1. حاسبة أذون الخزانة (تظهر الحاسبة مباشرة عند استعراضها) -->
+        <!-- 1. حاسبة أذون الخزانة (الحاسبة الحقيقية للأذون) -->
         <div class="section-card">
             <h2>حاسبة أذون الخزانة</h2>
             <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة تامة.</p>
@@ -165,10 +165,10 @@
                 </select>
             </div>
 
-            <button class="btn" onclick="calculateTBills()">احسب عائد أذون الخزانة</button>
+            <button class="btn" onclick="calculateTBills()">حساب أذون الخزانة</button>
 
             <div class="result-box" id="tbResult">
-                <span style="color: var(--text-muted);">نتائج الحساب والضرائب ستظهر هنا فوراً.</span>
+                <span style="color: var(--text-muted);">ستظهر تفاصيل سعر الشراء، العائد، الضريبة، وصافي العائد هنا.</span>
             </div>
         </div>
 
@@ -201,22 +201,34 @@
             const days = parseInt(document.getElementById('tbDuration').value);
             const resultBox = document.getElementById('tbResult');
 
-            if (!nominal || !rate) {
+            if (!nominal || !rate || isNaN(nominal) || isNaN(rate)) {
                 resultBox.innerHTML = '<span style="color: #ef4444;">يرجى إدخال القيمة الاسمية وسعر الفائدة بشكل صحيح.</span>';
                 return;
             }
 
-            // حساب العائد الإجمالي والضرائب (20%) وصافي العائد
+            // معادلة أذون الخزانة المصرية الصحيحة:
+            // 1. العائد الإجمالي = القيمة الاسمية * (الفائدة / 100) * (المدة / 365)
             const grossInterest = nominal * (rate / 100) * (days / 365);
+            
+            // 2. سعر الشراء الفعلي المدفوع = القيمة الاسمية - العائد الإجمالي
+            const purchasePrice = nominal - grossInterest;
+            
+            // 3. خصم الضريبة (20%) على العائد الإجمالي
             const tax = grossInterest * 0.20;
+            
+            // 4. صافي العائد الفعلي بعد الضريبة
             const netInterest = grossInterest - tax;
-            const netProceeds = nominal - tax; // القيمة الفعالة المستلمة أو صافي العائد حسب المعيار المصرفي
+            
+            // 5. المبلغ المستلم في نهاية الإذن (القيمة الاسمية - الضريبة)
+            const netProceedsAtMaturity = nominal - tax;
 
             resultBox.innerHTML = `
-                <strong>نتائج أذون الخزانة:</strong><br>
-                - العائد الإجمالي: ${grossInterest.toFixed(2)} جنيه<br>
-                - خصم الضريبة (20%): ${tax.toFixed(2)} جنيه<br>
-                - <strong>صافي العائد الفعلي: ${netInterest.toFixed(2)} جنيه</strong>
+                <strong>نتائج تحليل أذون الخزانة:</strong><br>
+                - سعر الشراء الفعلي: ${purchasePrice.toFixed(2)} جنيه<br>
+                - العائد الإجمالي قبل الضريبة: ${grossInterest.toFixed(2)} جنيه<br>
+                - ضريبة الأرباح التجارية (20%): ${tax.toFixed(2)} جنيه<br>
+                - <strong>صافي العائد الفعلي: ${netInterest.toFixed(2)} جنيه</strong><br>
+                - إجمالي المبلغ المقبوض في الاستحقاق: ${netProceedsAtMaturity.toFixed(2)} جنيه
             `;
         }
     </script>
