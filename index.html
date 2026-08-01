@@ -140,24 +140,24 @@
             <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية.</p>
         </div>
 
-        <!-- 1. حاسبة أذون الخزانة (الحاسبة الحقيقية للأذون) -->
+        <!-- 1. حاسبة أذون الخزانة -->
         <div class="section-card">
             <h2>حاسبة أذون الخزانة</h2>
             <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة تامة.</p>
             
             <div class="form-group">
                 <label>القيمة الاسمية للإذن (جنيه):</label>
-                <input type="number" id="tbNominal" placeholder="مثال: 25000">
+                <input type="number" id="nominalInput" value="25000">
             </div>
 
             <div class="form-group">
                 <label>سعر الفائدة السنوي (%):</label>
-                <input type="number" step="0.01" id="tbRate" placeholder="مثال: 29.5">
+                <input type="number" step="0.01" id="rateInput" value="29.5">
             </div>
 
             <div class="form-group">
                 <label>مدة الإذن (بالأيام):</label>
-                <select id="tbDuration">
+                <select id="durationSelect">
                     <option value="91">91 يوماً (3 شهور)</option>
                     <option value="182">182 يوماً (6 شهور)</option>
                     <option value="273">273 يوماً (9 شهور)</option>
@@ -167,8 +167,8 @@
 
             <button class="btn" onclick="calculateTBills()">حساب أذون الخزانة</button>
 
-            <div class="result-box" id="tbResult">
-                <span style="color: var(--text-muted);">ستظهر تفاصيل سعر الشراء، العائد، الضريبة، وصافي العائد هنا.</span>
+            <div class="result-box" id="outputResult">
+                <span style="color: var(--text-muted);">ستظهر النتائج فور الضغط على زر الحساب.</span>
             </div>
         </div>
 
@@ -196,43 +196,32 @@
 
     <script>
         function calculateTBills() {
-            const nominal = parseFloat(document.getElementById('tbNominal').value);
-            const rate = parseFloat(document.getElementById('tbRate').value);
-            const days = parseInt(document.getElementById('tbDuration').value);
-            const resultBox = document.getElementById('tbResult');
+            const nominal = parseFloat(document.getElementById('nominalInput').value);
+            const rate = parseFloat(document.getElementById('rateInput').value);
+            const days = parseInt(document.getElementById('durationSelect').value);
+            const resultBox = document.getElementById('outputResult');
 
             if (!nominal || !rate || isNaN(nominal) || isNaN(rate)) {
                 resultBox.innerHTML = '<span style="color: #ef4444;">يرجى إدخال القيمة الاسمية وسعر الفائدة بشكل صحيح.</span>';
                 return;
             }
 
-            // معادلة أذون الخزانة المصرية الصحيحة:
-            // 1. العائد الإجمالي = القيمة الاسمية * (الفائدة / 100) * (المدة / 365)
             const grossInterest = nominal * (rate / 100) * (days / 365);
-            
-            // 2. سعر الشراء الفعلي المدفوع = القيمة الاسمية - العائد الإجمالي
             const purchasePrice = nominal - grossInterest;
-            
-            // 3. خصم الضريبة (20%) على العائد الإجمالي
             const tax = grossInterest * 0.20;
-            
-            // 4. صافي العائد الفعلي بعد الضريبة
             const netInterest = grossInterest - tax;
-            
-            // 5. المبلغ المستلم في نهاية الإذن (القيمة الاسمية - الضريبة)
             const netProceedsAtMaturity = nominal - tax;
 
             resultBox.innerHTML = `
                 <strong>نتائج تحليل أذون الخزانة:</strong><br>
                 - سعر الشراء الفعلي: ${purchasePrice.toFixed(2)} جنيه<br>
-                - العائد الإجمالي قبل الضريبة: ${grossInterest.toFixed(2)} جنيه<br>
-                - ضريبة الأرباح التجارية (20%): ${tax.toFixed(2)} جنيه<br>
+                - العائد الإجمالي: ${grossInterest.toFixed(2)} جنيه<br>
+                - ضريبة الأرباح (20%): ${tax.toFixed(2)} جنيه<br>
                 - <strong>صافي العائد الفعلي: ${netInterest.toFixed(2)} جنيه</strong><br>
-                - إجمالي المبلغ المقبوض في الاستحقاق: ${netProceedsAtMaturity.toFixed(2)} جنيه
+                - المبلغ المقبوض بالاستحقاق: ${netProceedsAtMaturity.toFixed(2)} جنيه
             `;
         }
     </script>
 
 </body>
 </html>
-
