@@ -77,19 +77,26 @@
             margin: 0 0 12px 0;
             line-height: 1.5;
         }
-        .btn-back {
+        .btn {
             display: block;
             width: 100%;
-            background-color: var(--back-btn-bg);
-            color: #ffffff;
+            background-color: var(--accent-color);
+            color: #111827;
             text-align: center;
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 13px;
+            font-size: 14px;
             transition: background 0.3s;
             box-sizing: border-box;
+        }
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+        .btn-back {
+            background-color: var(--back-btn-bg);
+            color: #ffffff;
             margin-top: 10px;
         }
         .btn-back:hover {
@@ -99,7 +106,7 @@
 </head>
 <body>
 
-    <div class="container" id="home">
+    <div class="container">
         <div class="header">
             <img src="logo.png" alt="شعار الجروب" class="logo">
             <h1>جروب عملاء البنوك المصرية</h1>
@@ -116,21 +123,21 @@
         <div class="section-card">
             <h2>حاسبة القروض</h2>
             <p>أداة رقمية متطورة لحساب أقساط القروض وجداول السداد بدقة تامة.</p>
-            <a href="#home" class="btn-back">الرجوع للرئيسية 🏠</a>
+            <a href="https://tarekcbe-a11y.github.io/loan-calc/" class="btn">استعرض الأداة ⬅️</a>
         </div>
 
-        <!-- 3. حاسبة أذون الخزانة (المحتوى المطلوب مكان الخطأ + زر الرجوع المميز) -->
+        <!-- 3. حاسبة أذون الخزانة (الكبير اللي حطناه مكان الخطأ) -->
         <div class="section-card">
             <h2>حاسبة أذون الخزانة</h2>
             <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية المصممة بعناية لتلبية احتياجاتكم.</p>
-            <a href="#home" class="btn-back">الرجوع للرئيسية 🏠</a>
+            <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" class="btn">استعرض الأداة ⬅️</a>
         </div>
 
         <!-- 4. أذون الخزانة ضد الودائع -->
         <div class="section-card">
             <h2>أذون الخزانة ضد الودائع</h2>
             <p>مقارنة ذكية ومقدمة للموازنة بين عوائد الأذون والودائع البنكية المتاحة.</p>
-            <a href="#home" class="btn-back">الرجوع للرئيسية 🏠</a>
+            <a href="https://tarekcbe-a11y.github.io/-tb-vs-deposit-calculator/" class="btn">استعرض الأداة ⬅️</a>
         </div>
     </div>
 
