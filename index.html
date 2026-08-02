@@ -5,148 +5,204 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>جروب عملاء البنوك المصرية - منصة الخدمات الرقمية</title>
     <style>
-        :root {
-            --bg-color: #111827;
-            --card-bg: #1f2937;
-            --border-color: #f59e0b;
-            --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --accent-color: #f59e0b;
-            --accent-hover: #d97706;
-        }
         body {
+            background-color: #0b0f19;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            margin: 0;
-            padding: 16px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             min-height: 100vh;
-        }
-        .container {
-            width: 100%;
-            max-width: 480px;
-            background: var(--card-bg);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin: 0;
+            padding: 15px;
             box-sizing: border-box;
         }
-        .header {
+
+        .main-card {
+            background-color: #111827;
+            color: #f3f4f6;
+            padding: 18px;
+            border-radius: 14px;
+            border: 2px solid #d4af37;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            box-sizing: border-box;
+        }
+
+        /* الهيدر: اللوجو على الجنب والسطرين في المنتصف تماماً */
+        .header-container {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
-            padding-bottom: 15px;
+            justify-content: space-between;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            margin-bottom: 14px;
         }
-        .logo {
-            width: 55px;
-            height: 55px;
+
+        .header-logo img {
+            width: 45px;
+            height: 45px;
             border-radius: 8px;
             object-fit: cover;
-            flex-shrink: 0;
         }
+
         .header-text {
             text-align: center;
             flex-grow: 1;
         }
-        h1 {
-            font-size: 17px;
-            color: var(--accent-color);
-            margin: 0 0 3px 0;
-        }
-        .subtitle {
-            font-size: 11px;
-            color: var(--text-muted);
-            margin: 0;
-        }
-        .section-card {
-            background: rgba(17, 24, 39, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 14px;
-        }
-        .section-card h2 {
+
+        .header-title {
+            color: #d4af37;
             font-size: 15px;
-            margin: 0 0 6px 0;
-            color: var(--text-main);
-        }
-        .section-card p {
-            font-size: 12px;
-            color: var(--text-muted);
-            margin: 0 0 10px 0;
-            line-height: 1.4;
-        }
-        .btn {
-            display: block;
-            width: 100%;
-            background-color: var(--accent-color);
-            color: #111827;
-            text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            text-decoration: none;
             font-weight: bold;
-            font-size: 13px;
-            transition: background 0.3s;
+            margin-bottom: 2px;
+        }
+
+        .header-sub {
+            color: #9ca3af;
+            font-size: 11px;
+        }
+
+        .header-spacer {
+            width: 45px;
+        }
+
+        /* شبكة مربعات مصغرة ومترتبة لاستيعاب الأدوات الحالية والمستقبلية */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .tool-box {
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            padding: 10px 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 75px;
             box-sizing: border-box;
         }
-        .btn:hover {
-            background-color: var(--accent-hover);
+
+        .tool-box:hover {
+            border-color: #d4af37;
+            transform: translateY(-2px);
+        }
+
+        .tool-name {
+            font-size: 12px;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .tool-desc {
+            font-size: 9px;
+            color: #9ca3af;
+            line-height: 1.2;
+        }
+
+        .footer-divider {
+            border: none;
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            margin: 12px 0 8px 0;
+        }
+
+        /* الفوتر في الأسفل */
+        .footer-area {
+            text-align: center;
+            padding-top: 2px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #d4af37;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+
+        .footer-author {
+            color: #d4af37;
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- رأس المنصة (اللوجو والعنوان في المنتصف) -->
-        <div class="header">
-            <img src="logo.png" alt="شعار الجروب" class="logo">
-            <div class="header-text">
-                <h1>جروب عملاء البنوك المصرية</h1>
-                <p class="subtitle">منصة الخدمات الرقمية المتكاملة</p>
-            </div>
+<div class="main-card">
+    <!-- الهيدر -->
+    <div class="header-container">
+        <div class="header-logo">
+            <img src="logo.png" alt="شعار الجروب" onerror="this.style.display='none'">
         </div>
-
-        <!-- البوابة الرئيسية -->
-        <div class="section-card">
-            <h2>البوابة الرئيسية</h2>
-            <p>الواجهة التأسيسية للمنصة ومحور الوصول المباشر لكافة الخدمات والحلول المصرفية.</p>
+        <div class="header-text">
+            <div class="header-title">جروب عملاء البنوك المصرية</div>
+            <div class="header-sub">منصة الخدمات الرقمية المتكاملة</div>
         </div>
+        <div class="header-spacer"></div>
+    </div>
 
+    <!-- شبكة الأدوات والحاسبات بروابط جيت هب الأصلية -->
+    <div class="tools-grid">
         <!-- 1. حاسبة أذون الخزانة -->
-        <div class="section-card">
-            <h2>حاسبة أذون الخزانة</h2>
-            <p>مخصصة لتحليل عوائد أذون الخزانة وحساب الضرائب وصافي العائد بدقة تامة.</p>
-            <a href="https://tarekcbe-a11y.github.io" class="btn" target="_blank" rel="noopener noreferrer">استعرض الأداة ⬅️</a>
-        </div>
+        <a href="https://tarekcbe-a11y.github.io" class="tool-box" target="_blank" rel="noopener noreferrer">
+            <div class="tool-name">حاسبة أذون الخزانة</div>
+            <div class="tool-desc">تحليل العوائد والضرائب بدقة تامة.</div>
+        </a>
 
-        <!-- 2. حاسبة العوائد البنكية والودائع -->
-        <div class="section-card">
-            <h2>حاسبة احتساب عوائد الشهادات والودائع</h2>
-            <p>أداة متكاملة لحساب عوائد الشهادات البنكية والودائع قصيرة الأجل.</p>
-            <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" class="btn" target="_blank" rel="noopener noreferrer">استعرض الأداة ⬅️</a>
-        </div>
+        <!-- 2. حاسبة الشهادات والودائع -->
+        <a href="https://tarekcbe-a11y.github.io/-interest-calculator/" class="tool-box" target="_blank" rel="noopener noreferrer">
+            <div class="tool-name">حاسبة الشهادات</div>
+            <div class="tool-desc">عوائد الشهادات والودائع قصيرة الأجل.</div>
+        </a>
 
         <!-- 3. حاسبة القروض -->
-        <div class="section-card">
-            <h2>حاسبة القروض</h2>
-            <p>أداة رقمية متطورة لحساب أقساط القروض وجداول السداد بدقة تامة.</p>
-            <a href="https://tarekcbe-a11y.github.io/loan-calc/" class="btn" target="_blank" rel="noopener noreferrer">استعرض الأداة ⬅️</a>
+        <a href="https://tarekcbe-a11y.github.io/loan-calc/" class="tool-box" target="_blank" rel="noopener noreferrer">
+            <div class="tool-name">حاسبة القروض</div>
+            <div class="tool-desc">أقساط القروض وجداول السداد بدقة.</div>
+        </a>
+
+        <!-- 4. مقارنة الوديعة والأذون -->
+        <a href="https://tarekcbe-a11y.github.io/-tb-vs-deposit-calculator/" class="tool-box" target="_blank" rel="noopener noreferrer">
+            <div class="tool-name">المقارنة الذكية</div>
+            <div class="tool-desc">موازنة عوائد الأذون والودائع.</div>
+        </a>
+
+        <!-- خانات جاهزة للإضافات القادمة -->
+        <div class="tool-box" style="opacity: 0.6; cursor: default;">
+            <div class="tool-name">الأداة الخامسة</div>
+            <div class="tool-desc">قريباً...</div>
         </div>
 
-        <!-- 4. أذون الخزانة ضد الودائع -->
-        <div class="section-card">
-            <h2>مقارنة بين الوديعة والأذون</h2>
-            <p>مقارنة ذكية ومقدمة للموازنة بين عوائد الأذون والودائع البنكية المتاحة.</p>
-            <a href="https://tarekcbe-a11y.github.io/-tb-vs-deposit-calculator/" class="btn" target="_blank" rel="noopener noreferrer">استعرض الأداة ⬅️</a>
+        <div class="tool-box" style="opacity: 0.6; cursor: default;">
+            <div class="tool-name">الأداة السادسة</div>
+            <div class="tool-desc">قريباً...</div>
         </div>
     </div>
+
+    <hr class="footer-divider">
+
+    <!-- الفوتر السفلي -->
+    <div class="footer-area">
+        <div class="footer-brand">
+            <span>جروب عملاء البنوك المصرية</span>
+            <span>🛡️</span>
+        </div>
+        <div class="footer-author">Developed by Tarek Metwally</div>
+    </div>
+</div>
 
 </body>
 </html>
