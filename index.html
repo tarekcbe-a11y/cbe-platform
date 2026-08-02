@@ -19,10 +19,10 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             margin: 0;
-            padding: 20px;
+            padding: 16px;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
         }
         .container {
@@ -31,29 +31,36 @@
             background: var(--card-bg);
             border: 2px solid var(--border-color);
             border-radius: 16px;
-            padding: 24px;
+            padding: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             box-sizing: border-box;
         }
         .header {
-            text-align: center;
-            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(245, 158, 11, 0.3);
+            padding-bottom: 15px;
         }
         .logo {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 2px solid var(--border-color);
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
             object-fit: cover;
-            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        .header-text {
+            text-align: center;
+            flex-grow: 1;
         }
         h1 {
-            font-size: 20px;
+            font-size: 17px;
             color: var(--accent-color);
-            margin: 0 0 5px 0;
+            margin: 0 0 3px 0;
         }
         .subtitle {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             margin: 0;
         }
@@ -61,19 +68,19 @@
             background: rgba(17, 24, 39, 0.6);
             border: 1px solid var(--border-color);
             border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
+            padding: 14px;
+            margin-bottom: 14px;
         }
         .section-card h2 {
-            font-size: 16px;
-            margin: 0 0 8px 0;
+            font-size: 15px;
+            margin: 0 0 6px 0;
             color: var(--text-main);
         }
         .section-card p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-muted);
-            margin: 0 0 12px 0;
-            line-height: 1.5;
+            margin: 0 0 10px 0;
+            line-height: 1.4;
         }
         .btn {
             display: block;
@@ -81,11 +88,11 @@
             background-color: var(--accent-color);
             color: #111827;
             text-align: center;
-            padding: 12px;
+            padding: 10px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             transition: background 0.3s;
             box-sizing: border-box;
         }
@@ -97,10 +104,13 @@
 <body>
 
     <div class="container">
+        <!-- رأس المنصة (اللوجو والعنوان في المنتصف) -->
         <div class="header">
             <img src="logo.png" alt="شعار الجروب" class="logo">
-            <h1>جروب عملاء البنوك المصرية</h1>
-            <p class="subtitle">منصة الخدمات الرقمية المتكاملة</p>
+            <div class="header-text">
+                <h1>جروب عملاء البنوك المصرية</h1>
+                <p class="subtitle">منصة الخدمات الرقمية المتكاملة</p>
+            </div>
         </div>
 
         <!-- البوابة الرئيسية -->
