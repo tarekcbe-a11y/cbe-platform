@@ -29,7 +29,6 @@
             box-sizing: border-box;
         }
 
-        /* الهيدر: اللوجو على الجنب والسطرين في المنتصف تماماً */
         .header-container {
             display: flex;
             align-items: center;
@@ -67,7 +66,6 @@
             width: 45px;
         }
 
-        /* شبكة مربعات مصغرة ومترتبة لاستيعاب الأدوات الحالية والمستقبلية */
         .tools-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -114,7 +112,6 @@
             margin: 12px 0 8px 0;
         }
 
-        /* الفوتر في الأسفل */
         .footer-area {
             text-align: center;
             padding-top: 2px;
@@ -142,7 +139,6 @@
 <body>
 
 <div class="main-card">
-    <!-- الهيدر -->
     <div class="header-container">
         <div class="header-logo">
             <img src="logo.png" alt="شعار الجروب" onerror="this.style.display='none'">
@@ -154,7 +150,6 @@
         <div class="header-spacer"></div>
     </div>
 
-    <!-- شبكة الأدوات والحاسبات بروابط جيت هب الأصلية -->
     <div class="tools-grid">
         <!-- 1. حاسبة أذون الخزانة -->
         <a href="https://tarekcbe-a11y.github.io" class="tool-box" target="_blank" rel="noopener noreferrer">
@@ -180,12 +175,13 @@
             <div class="tool-desc">موازنة عوائد الأذون والودائع.</div>
         </a>
 
-        <!-- خانات جاهزة للإضافات القادمة -->
-        <div class="tool-box" style="opacity: 0.6; cursor: default;">
-            <div class="tool-name">الأداة الخامسة</div>
-            <div class="tool-desc">قريباً...</div>
-        </div>
+        <!-- 5. دليل الشكاوى الرسمية (مضاف حديثاً) -->
+        <a href="https://tarekcbe-a11y.github.io/complaints-tool/" class="tool-box" target="_blank" rel="noopener noreferrer">
+            <div class="tool-name">دليل الشكاوى الرسمية</div>
+            <div class="tool-desc">خطوات التصعيد للبنك المركزي.</div>
+        </a>
 
+        <!-- الأداة السادسة -->
         <div class="tool-box" style="opacity: 0.6; cursor: default;">
             <div class="tool-name">الأداة السادسة</div>
             <div class="tool-desc">قريباً...</div>
@@ -194,7 +190,6 @@
 
     <hr class="footer-divider">
 
-    <!-- الفوتر السفلي -->
     <div class="footer-area">
         <div class="footer-brand">
             <span>جروب عملاء البنوك المصرية</span>
